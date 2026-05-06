@@ -114,18 +114,9 @@
       padding: 0.5rem 0;
     }
 
-    /* dark mode overrides for search */
-    body.dark .search-result-item {
-      border-top-color: #2a2926;
-    }
-    body.dark .search-result-item:last-child {
-      border-bottom-color: #2a2926;
-    }
-    body.dark .search-result-desc {
-      color: #76756f;
-    }
-
-
+    body.dark .search-result-item { border-top-color: #2a2926; }
+    body.dark .search-result-item:last-child { border-bottom-color: #2a2926; }
+    body.dark .search-result-desc { color: #76756f; }
   </style>
 </head>
 <body>
@@ -167,6 +158,7 @@
                 "desc": "SEC and CBN regulatory filings for a cross-border equity round; transaction closed on schedule.",
                 "track": "Law",
                 "href": "law.html",
+                "external": false,
                 "italic": false
           },
           {
@@ -175,6 +167,7 @@
                 "desc": "Commercial litigation; successfully defended a breach-of-contract claim in the Lagos High Court.",
                 "track": "Law",
                 "href": "law.html",
+                "external": false,
                 "italic": true
           },
           {
@@ -183,6 +176,7 @@
                 "desc": "Shareholders' agreement for a three-party infrastructure JV; advised on governance and deadlock mechanisms.",
                 "track": "Law",
                 "href": "law.html",
+                "external": false,
                 "italic": false
           },
           {
@@ -191,6 +185,7 @@
                 "desc": "Led data-protection review and full policy overhaul ahead of a Series A fundraise.",
                 "track": "Law",
                 "href": "law.html",
+                "external": false,
                 "italic": false
           },
           {
@@ -199,6 +194,7 @@
                 "desc": "Advised on regulatory response strategy following an SEC inquiry into capital-adequacy shortfalls.",
                 "track": "Law",
                 "href": "law.html",
+                "external": false,
                 "italic": true
           },
           {
@@ -207,6 +203,7 @@
                 "desc": "LLM-assisted clause extraction and risk flagging for Nigerian commercial contracts.",
                 "track": "Engineering",
                 "href": "engineering.html",
+                "external": false,
                 "italic": false
           },
           {
@@ -215,6 +212,7 @@
                 "desc": "REST API aggregating cause-list data from Lagos, Abuja, and Port Harcourt federal courts.",
                 "track": "Engineering",
                 "href": "engineering.html",
+                "external": false,
                 "italic": false
           },
           {
@@ -223,6 +221,7 @@
                 "desc": "Deterministic transaction-flow engine for a peer-to-peer escrow product; zero fund-loss since launch.",
                 "track": "Engineering",
                 "href": "engineering.html",
+                "external": false,
                 "italic": false
           },
           {
@@ -231,6 +230,7 @@
                 "desc": "Identified three critical and two medium vulnerabilities in a tokenised yield-vault implementation.",
                 "track": "Engineering",
                 "href": "engineering.html",
+                "external": false,
                 "italic": false
           },
           {
@@ -239,6 +239,7 @@
                 "desc": "Open-source Python library for parsing Nigerian legislative XML into structured, queryable objects.",
                 "track": "Engineering",
                 "href": "engineering.html",
+                "external": false,
                 "italic": false
           },
           {
@@ -246,7 +247,8 @@
                 "title": "The Dual Practitioner Problem",
                 "desc": "On building a professional identity that doesn't collapse into either track.",
                 "track": "Law + Engineering",
-                "href": "law.html",
+                "href": "articles/2025-03-dual-practitioner-problem.html",
+                "external": false,
                 "italic": true
           },
           {
@@ -254,7 +256,8 @@
                 "title": "NDPR at Two Years: What Enforcement Actually Looks Like",
                 "desc": "A practitioner's reading of NITDA's enforcement posture since 2022.",
                 "track": "Law",
-                "href": "law.html",
+                "href": "articles/2024-11-ndpr-at-two-years.html",
+                "external": false,
                 "italic": false
           },
           {
@@ -262,7 +265,8 @@
                 "title": "State Machines as Contracts",
                 "desc": "Why deterministic state management and legal drafting are the same intellectual problem.",
                 "track": "Law + Engineering",
-                "href": "law.html",
+                "href": "articles/2024-08-state-machines-as-contracts.html",
+                "external": false,
                 "italic": false
           },
           {
@@ -270,7 +274,8 @@
                 "title": "On LLMs and Legal Research in Sub-Saharan Africa",
                 "desc": "Technical memo on hallucination rates when querying Nigerian case law.",
                 "track": "Law + Engineering",
-                "href": "law.html",
+                "href": "articles/2024-04-llms-legal-research.html",
+                "external": false,
                 "italic": false
           },
           {
@@ -278,7 +283,8 @@
                 "title": "Jurisdiction by Default",
                 "desc": "A note on choice-of-law clauses in Nigerian B2B SaaS agreements.",
                 "track": "Law + Engineering",
-                "href": "law.html",
+                "href": "articles/2023-01-jurisdiction-by-default.html",
+                "external": false,
                 "italic": true
           },
           {
@@ -286,7 +292,8 @@
                 "title": "CBN's Open Banking Framework: Gaps and Early Readings",
                 "desc": "Analysis of the regulatory framework published in February 2022 and its practical limits.",
                 "track": "Law",
-                "href": "law.html",
+                "href": "articles/2022-06-cbn-open-banking.html",
+                "external": false,
                 "italic": false
           },
           {
@@ -294,7 +301,8 @@
                 "title": "Re-entrancy at Rest",
                 "desc": "A taxonomy of re-entrancy attack patterns in EVM-compatible smart contracts, with annotated examples.",
                 "track": "Engineering",
-                "href": "engineering.html",
+                "href": "articles/2023-11-reentrancy-at-rest.html",
+                "external": false,
                 "italic": true
           },
           {
@@ -302,7 +310,8 @@
                 "title": "Formal Verification for the Sceptic",
                 "desc": "A practical introduction to Certora Prover for teams that don't have a formal-methods background.",
                 "track": "Engineering",
-                "href": "engineering.html",
+                "href": "articles/2023-03-formal-verification-for-the-sceptic.html",
+                "external": false,
                 "italic": false
           }
     ];
@@ -331,20 +340,23 @@
         container.innerHTML = '<p class="search-empty">No results.</p>';
         return;
       }
-      container.innerHTML = results.map(item => `
+      container.innerHTML = results.map(item => {
+        const target = item.external ? ' target="_blank" rel="noopener noreferrer"' : '';
+        const titleHtml = item.italic ? `<em>${item.title}</em>` : item.title;
+        return `
         <div class="search-result-item">
           <span class="search-result-year">${item.year}</span>
           <div class="search-result-body">
             <span class="search-result-title">
-              <a href="${item.href}">${item.italic ? `<em>${item.title}</em>` : item.title}</a>
+              <a href="${item.href}"${target}>${titleHtml}</a>
             </span>
             <div class="search-result-meta">
               <span class="search-result-track">${item.track}</span>
             </div>
             <span class="search-result-desc">${item.desc}</span>
           </div>
-        </div>
-      `).join('');
+        </div>`;
+      }).join('');
     }
 
     document.getElementById('search-input').addEventListener('input', function () {

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayoola Olaoye</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ─── SEARCH ─── */
+    .search-wrap {
+      margin-top: 3rem;
+      width: 100%;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--rule);
+      color: var(--ink);
+      font-family: var(--font);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      padding: 0.35rem 0;
+      outline: none;
+      letter-spacing: 0.01em;
+      transition: border-color 0.2s ease;
+    }
+
+    .search-input::placeholder {
+      color: var(--muted);
+    }
+
+    .search-input:focus {
+      border-bottom-color: var(--ink);
+    }
+
+    .search-results {
+      margin-top: 1.5rem;
+      width: 100%;
+      text-align: left;
+      display: none;
+    }
+
+    .search-results.visible {
+      display: block;
+    }
+
+    .search-result-item {
+      padding: 0.55rem 0;
+      border-top: 1px solid #e4e3dc;
+      display: grid;
+      grid-template-columns: 3.5rem 1fr;
+      gap: 0 1.25rem;
+      align-items: baseline;
+    }
+
+    .search-result-item:last-child {
+      border-bottom: 1px solid #e4e3dc;
+    }
+
+    .search-result-year {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .search-result-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.08rem;
+    }
+
+    .search-result-title {
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .search-result-title a {
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .search-result-title a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+
+    .search-result-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.4;
+      margin-bottom: 0.15rem;
+      white-space: nowrap;
+    }
+
+    .search-result-track {
+      letter-spacing: 0.06em;
+      font-size: 0.78rem;
+    }
+
+    .search-result-desc {
+      font-size: 0.82rem;
+      color: #7a7a74;
+      line-height: 1.45;
+    }
+
+    .search-empty {
+      font-size: 0.88rem;
+      color: var(--muted);
+      padding: 0.5rem 0;
+    }
+
+    /* dark mode overrides for search */
+    body.dark .search-result-item {
+      border-top-color: #2a2926;
+    }
+    body.dark .search-result-item:last-child {
+      border-bottom-color: #2a2926;
+    }
+    body.dark .search-result-desc {
+      color: #76756f;
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <button class="landing-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">dark</button>
+
+  <div class="landing-stage">
+    <div class="landing-inner">
+      <h1 class="landing-name">Ayoola Olaoye</h1>
+      <p class="landing-descriptor">Corporate lawyer. Software engineer.</p>
+      <nav class="landing-fork" aria-label="Practice areas">
+        <a href="law.html">Law</a>
+        <span class="landing-divider" aria-hidden="true"></span>
+        <a href="engineering.html">Engineering</a>
+      </nav>
+
+      <div class="search-wrap">
+        <input
+          class="search-input"
+          type="search"
+          placeholder="Search works, writing…"
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Search"
+          id="search-input"
+        >
+      </div>
+
+      <div class="search-results" id="search-results" role="region" aria-live="polite" aria-label="Search results"></div>
+    </div>
+  </div>
+
+  <script>
+    /* ─── CONTENT INDEX ─── */
+    const INDEX = [
+      // ── LAW: Work ──
+      { year: "2024", title: "Series B Merger Clearance — Fintech", desc: "SEC and CBN regulatory filings for a cross-border equity round; transaction closed on schedule.", track: "Law", href: "law.html", italic: false },
+      { year: "2023", title: "Okafor v. Meridian Holdings", desc: "Commercial litigation; successfully defended a breach-of-contract claim in the Lagos High Court.", track: "Law", href: "law.html", italic: true },
+      { year: "2023", title: "Joint Venture Structuring — Infrastructure Consortium", desc: "Shareholders' agreement for a three-party infrastructure JV; advised on governance and deadlock mechanisms.", track: "Law", href: "law.html", italic: false },
+      { year: "2022", title: "NDPR Compliance Audit — Digital Health Platform", desc: "Led data-protection review and full policy overhaul ahead of a Series A fundraise.", track: "Law", href: "law.html", italic: false },
+      { year: "2022", title: "Re: Apex Microfinance Bank (SEC Matter)", desc: "Advised on regulatory response strategy following an SEC inquiry into capital-adequacy shortfalls.", track: "Law", href: "law.html", italic: true },
+      // ── LAW: Writing ──
+      { year: "Mar 2025", title: "The Dual Practitioner Problem", desc: "On building a professional identity that doesn't collapse into either track.", track: "Law + Engineering", href: "law.html", italic: true },
+      { year: "Nov 2024", title: "NDPR at Two Years: What Enforcement Actually Looks Like", desc: "A practitioner's reading of NITDA's enforcement posture since 2022.", track: "Law", href: "law.html", italic: false },
+      { year: "Aug 2024", title: "State Machines as Contracts", desc: "Why deterministic state management and legal drafting are the same intellectual problem.", track: "Law + Engineering", href: "law.html", italic: false },
+      { year: "Apr 2024", title: "On LLMs and Legal Research in Sub-Saharan Africa", desc: "Technical memo on hallucination rates when querying Nigerian case law.", track: "Law + Engineering", href: "law.html", italic: false },
+      { year: "Jan 2023", title: "Jurisdiction by Default", desc: "A note on choice-of-law clauses in Nigerian B2B SaaS agreements.", track: "Law + Engineering", href: "law.html", italic: true },
+      { year: "Jun 2022", title: "CBN's Open Banking Framework: Gaps and Early Readings", desc: "Analysis of the regulatory framework published in February 2022 and its practical limits.", track: "Law", href: "law.html", italic: false },
+      // ── ENGINEERING: Work ──
+      { year: "2025", title: "Lex — Contract Intelligence Layer", desc: "LLM-assisted clause extraction and risk flagging for Nigerian commercial contracts.", track: "Engineering", href: "engineering.html", italic: false },
+      { year: "2024", title: "CourtDocket API", desc: "REST API aggregating cause-list data from Lagos, Abuja, and Port Harcourt federal courts.", track: "Engineering", href: "engineering.html", italic: false },
+      { year: "2024", title: "Escrow State Machine", desc: "Deterministic transaction-flow engine for a peer-to-peer escrow product; zero fund-loss since launch.", track: "Engineering", href: "engineering.html", italic: false },
+      { year: "2023", title: "ERC-4626 Vault Security Audit — DeFi Protocol", desc: "Identified three critical and two medium vulnerabilities in a tokenised yield-vault implementation.", track: "Engineering", href: "engineering.html", italic: false },
+      { year: "2023", title: "nglaw-parser", desc: "Open-source Python library for parsing Nigerian legislative XML into structured, queryable objects.", track: "Engineering", href: "engineering.html", italic: false },
+      // ── ENGINEERING: Writing ──
+      { year: "Nov 2023", title: "Re-entrancy at Rest", desc: "A taxonomy of re-entrancy attack patterns in EVM-compatible smart contracts, with annotated examples.", track: "Engineering", href: "engineering.html", italic: true },
+      { year: "Mar 2023", title: "Formal Verification for the Sceptic", desc: "A practical introduction to Certora Prover for teams that don't have a formal-methods background.", track: "Engineering", href: "engineering.html", italic: false },
+    ];
+
+    /* deduplicate cross-track entries by title */
+    const DEDUPED = [];
+    const seen = new Set();
+    for (const item of INDEX) {
+      if (!seen.has(item.title)) {
+        seen.add(item.title);
+        DEDUPED.push(item);
+      } else {
+        /* upgrade track label */
+        const existing = DEDUPED.find(d => d.title === item.title);
+        if (existing && !existing.track.includes('+')) {
+          existing.track = 'Law + Engineering';
+        }
+      }
+    }
+
+    function search(query) {
+      const q = query.trim().toLowerCase();
+      if (!q) return [];
+      return DEDUPED.filter(item =>
+        item.title.toLowerCase().includes(q) ||
+        item.desc.toLowerCase().includes(q) ||
+        item.track.toLowerCase().replace('+', 'and').includes(q) ||
+        item.track.toLowerCase().includes(q) ||
+        item.year.toLowerCase().includes(q)
+      );
+    }
+
+    function renderResults(results, query) {
+      const container = document.getElementById('search-results');
+      if (!query.trim()) {
+        container.classList.remove('visible');
+        container.innerHTML = '';
+        return;
+      }
+      container.classList.add('visible');
+      if (results.length === 0) {
+        container.innerHTML = '<p class="search-empty">No results.</p>';
+        return;
+      }
+      container.innerHTML = results.map(item => `
+        <div class="search-result-item">
+          <span class="search-result-year">${item.year}</span>
+          <div class="search-result-body">
+            <span class="search-result-title">
+              <a href="${item.href}">${item.italic ? `<em>${item.title}</em>` : item.title}</a>
+            </span>
+            <div class="search-result-meta">
+              <span class="search-result-track">${item.track}</span>
+            </div>
+            <span class="search-result-desc">${item.desc}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    document.getElementById('search-input').addEventListener('input', function () {
+      renderResults(search(this.value), this.value);
+    });
+
+    /* ─── THEME ─── */
+    (function () {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+        document.querySelector('.landing-toggle').textContent = 'light';
+      }
+    })();
+
+    function toggleTheme() {
+      const btn = document.querySelector('.landing-toggle');
+      if (document.body.classList.toggle('dark')) {
+        localStorage.setItem('theme', 'dark');
+        btn.textContent = 'light';
+      } else {
+        localStorage.setItem('theme', 'light');
+        btn.textContent = 'dark';
+      }
+    }
+  </script>
+
+</body>
+</html>

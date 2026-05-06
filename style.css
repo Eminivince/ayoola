@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ink: #1a1a1a;
+  --paper: #fafaf7;
+  --muted: #888882;
+  --rule: #d0cfc8;
+  --font: 'EB Garamond', Georgia, serif;
+}
+
+html {
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ─── DARK MODE ─── */
+body.dark {
+  --ink: #e8e7e1;
+  --paper: #141412;
+  --muted: #76756f;
+  --rule: #38372f;
+}
+
+body.dark .prose { color: #c8c7c0; }
+body.dark .entry-desc { color: #76756f; }
+body.dark .writing-context { color: #76756f; }
+body.dark .footer-line { color: #4a4943; }
+body.dark .entry { border-top-color: #2a2926; }
+body.dark .entry:last-child { border-bottom-color: #2a2926; }
+
+/* ─── LINKS ─── */
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+a:hover {
+  text-decoration-color: var(--ink);
+}
+
+a.bare {
+  text-decoration: none;
+}
+
+a.bare:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--ink);
+}
+
+/* ─── LAYOUT ─── */
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+}
+
+/* ─── SECTION LABELS ─── */
+.label {
+  display: block;
+  font-size: 0.7rem;
+  font-variant: small-caps;
+  font-feature-settings: "smcp";
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  text-transform: lowercase;
+  margin-bottom: 1.5rem;
+}
+
+/* ─── WORK / WRITING LIST ─── */
+.entry-list {
+  list-style: none;
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 0 1.5rem;
+  padding: 0.65rem 0;
+  border-top: 1px solid #e4e3dc;
+  align-items: baseline;
+}
+
+.entry:last-child {
+  border-bottom: 1px solid #e4e3dc;
+}
+
+.entry-year {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  padding-top: 0.05em;
+}
+
+.entry-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.entry-title {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.entry-title a {
+  text-decoration: none;
+}
+
+.entry-title a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--ink);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.entry-desc {
+  font-size: 0.875rem;
+  color: #7a7a74;
+  line-height: 1.5;
+}
+
+/* writing dates are slightly longer */
+.entry.writing .entry-year {
+  grid-column: 1;
+  font-size: 0.82rem;
+}
+
+/* ─── SECTION SPACING ─── */
+.section {
+  padding: 3.5rem 0;
+}
+
+/* ─── PROSE ─── */
+.prose {
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 54ch;
+  color: #2c2c29;
+  margin-bottom: 2.5rem;
+}
+
+/* ─── CONTACT ─── */
+.contact-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* ─── NAV / CROSS-LINK ─── */
+.site-nav {
+  padding: 2.5rem 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.site-nav .back {
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.theme-toggle {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--font);
+  letter-spacing: 0.03em;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--ink);
+}
+
+/* landing toggle */
+.landing-toggle {
+  position: fixed;
+  top: 2.5rem;
+  right: 2rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--font);
+  letter-spacing: 0.03em;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.landing-toggle:hover {
+  color: var(--ink);
+}
+
+/* cross-track annotation */
+.entry-track {
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  font-variant: small-caps;
+  font-feature-settings: "smcp";
+}
+
+.cross-link {
+  padding: 3rem 0 4rem;
+}
+
+.cross-link a {
+  font-size: 0.9rem;
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  padding: 2rem 0 4rem;
+}
+
+.footer-line {
+  font-size: 0.8rem;
+  color: #b0afa8;
+}
+
+/* ─── LANDING ─── */
+.landing-stage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+}
+
+.landing-inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  max-width: 28rem;
+}
+
+.landing-name {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 0.55rem;
+  white-space: nowrap;
+}
+
+.landing-descriptor {
+  font-size: 0.9rem;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+  margin-bottom: 3.5rem;
+  white-space: nowrap;
+}
+
+.landing-fork {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.landing-fork a {
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: var(--ink);
+  letter-spacing: 0.005em;
+  transition: opacity 0.2s ease;
+}
+
+.landing-fork a:hover {
+  opacity: 0.5;
+}
+
+.landing-divider {
+  width: 1px;
+  height: 1.1rem;
+  background: var(--rule);
+  display: block;
+  flex-shrink: 0;
+}
+
+/* ─── INTERIOR HEADER ─── */
+.page-header {
+  padding: 2.5rem 0 3.5rem;
+}
+
+.page-header hr {
+  margin-top: 2.5rem;
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 600px) {
+  html { font-size: 16px; }
+
+  .section { padding: 2.75rem 0; }
+
+  .entry {
+    grid-template-columns: 3rem 1fr;
+    gap: 0 1rem;
+  }
+
+  .landing-name {
+    font-size: 1.2rem;
+    white-space: normal;
+  }
+
+  .landing-descriptor {
+    white-space: normal;
+    font-size: 0.85rem;
+  }
+  .landing-fork { gap: 2rem; }
+  .landing-fork a { font-size: 1rem; }
+}

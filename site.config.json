@@ -1,0 +1,22 @@
+{
+  "url": "https://ayoolaolaoye.example",
+  "name": "Ayoola Olaoye",
+  "title": "Ayoola Olaoye — Corporate Lawyer & Software Engineer",
+  "tagline": "Corporate lawyer. Software engineer.",
+  "description": "Selected work and writing across corporate law, fintech regulation, smart-contract security, and software engineering — by Ayoola Olaoye.",
+  "jobTitle": "Corporate lawyer & software engineer",
+  "knowsAbout": [
+    "Corporate law",
+    "Fintech regulation",
+    "Commercial contracts",
+    "Smart-contract security",
+    "Blockchain engineering",
+    "Software engineering"
+  ],
+  "sameAs": [
+    "https://linkedin.com/in/ayoolaolaoye"
+  ],
+  "lang": "en",
+  "locale": "en_US",
+  "image": ""
+}
